@@ -1,0 +1,33 @@
+MR Calendar v2.5.5 — TRAY CONTROLLER + MR ICON
+
+✅ Tray controller قبلی حذف شد
+✅ Eventها مستقیماً از TrayIconEvent::receiver خوانده می‌شوند
+✅ Eventهای منو مستقیماً از MenuEvent::receiver خوانده می‌شوند
+✅ Open → Show + Restore + Focus
+✅ Today → امروز + Show + Focus
+✅ New Note → امروز + پنجره Note + Show + Focus
+✅ Exit → خروج کامل
+✅ Single Click چپ Tray → Restore
+✅ Double Click چپ Tray → Restore
+✅ X → مخفی شدن در Tray (CancelClose)
+✅ Minimize → Tray
+✅ Tooltip: سه‌شنبه ۱۴ مهر ۱۴۰۵ با RTL اجباری
+✅ لوگوی EXE جدید: فقط MR بزرگ
+✅ لوگوی Tray جدید: فقط MR بزرگ
+✅ ICO چندسایزه 16 تا 256
+✅ ماه قبل / بعد
+✅ سال قبل / بعد
+✅ انتخاب سریع ماه / سال
+✅ Persian-first Calendar
+✅ Portable + Setup scripts
+
+🔄 Compile روی Windows
+🔄 تست واقعی Open / Today / New Note / Exit
+🔄 تست Single / Double Click
+🔄 تست X و Minimize
+⬜ Mini Calendar کنار ساعت
+⬜ Windows Toast
+⬜ Snooze / Done
+⬜ Weekly / Monthly کامل
+⬜ Backup / Restore
+⬜ Search

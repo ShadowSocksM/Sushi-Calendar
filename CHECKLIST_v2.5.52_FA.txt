@@ -1,0 +1,11 @@
+Sushi Calendar v2.5.52 - Experimental fix
+[CONFIRMED] Single Instance - preserved unchanged from v2.5.51a
+[CONFIRMED EARLIER] Tray single click popup toggle
+[NEEDS TEST] Main window close X: resets popup state and hides main
+[NEEDS TEST] Popup Escape key closes popup
+[UNRESOLVED] Popup button hit testing offset
+[UNRESOLVED] Black top strip in popup
+[UNRESOLVED] Native rounded window corners (only internal frame paint adjusted)
+[NEEDS TEST] Windows 10/11
+
+No Windows build was run in this environment.

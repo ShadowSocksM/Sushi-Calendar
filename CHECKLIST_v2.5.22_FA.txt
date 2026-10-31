@@ -1,0 +1,11 @@
+Sushi Calendar v2.5.22 — RTL/BiDi Note Fix
+
+✅ Note buffer: Raw Unicode only
+✅ No reverse / Arabic reshaping on editable text
+✅ Persian note alignment: Right
+✅ English-only note alignment: Left
+✅ Caret/selection/Ctrl+A,C,X,V preserved
+✅ Note vertical scroll preserved
+🔒 Tray renderer from v2.5.21 unchanged
+🔒 By Soshiant unchanged
+🔄 Windows runtime test required

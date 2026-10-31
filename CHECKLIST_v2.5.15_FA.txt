@@ -1,0 +1,11 @@
+Sushi Calendar v2.5.16 - Checklist
+
+✅ Tray renderer قبلی حذف شد
+✅ عدد روز Tray با فونت واقعی Windows رندر می‌شود
+✅ ارقام Tray فارسی واقعی: ۰۱۲۳۴۵۶۷۸۹
+✅ عدد Tray بزرگ‌تر، Bold/خواناتر و Anti-aliased
+✅ پس‌زمینه سرمه‌ای و عدد سفید
+✅ منطق Click/Restore سالم Tray دست نخورده
+✅ اصلاحات فارسی/RTL نسخه قبل حفظ شد
+✅ By Soshiant سمت چپ حفظ شد
+🔄 تست Runtime روی Windows توسط کاربر

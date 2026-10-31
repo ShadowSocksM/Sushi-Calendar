@@ -1,0 +1,1 @@
+Sushi Calendar v2.5.76: رفع E0432: MapWindowPoints در windows-sys 0.59 متعلق به Win32::Graphics::Gdi است، نه WindowsAndMessaging. حذف importهای استفاده‌نشده. عملکرد Tray بدون تغییر. کامپایل روی ویندوز هنوز تست نشده است.

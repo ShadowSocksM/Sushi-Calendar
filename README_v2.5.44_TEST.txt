@@ -1,0 +1,1 @@
+TEST BUILD (Windows runtime not verified). Restores the native wakeup from v2.5.37 when delayed tray single-click fires. Explicitly closes mini viewport when toggled off. Double click cancels pending single click. The hidden main window is temporarily awakened for event processing and hidden after popup creation. This is an incremental fix, not an independent popup event loop.

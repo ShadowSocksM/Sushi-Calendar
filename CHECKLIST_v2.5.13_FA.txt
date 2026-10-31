@@ -1,0 +1,10 @@
+Sushi Calendar v2.5.13 - Checklist
+
+✅ Compile error E0502 fixed
+✅ note alignment is calculated before mutable TextEdit borrow
+✅ unused align warning removed
+✅ Persian Tray renderer from v2.5.12 preserved
+✅ Persian/English note direction logic preserved
+✅ working Tray open/restore behavior preserved
+✅ By Soshiant preserved
+🔄 Windows runtime test by user

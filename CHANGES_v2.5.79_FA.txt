@@ -1,0 +1,1 @@
+v2.5.79: Popup official holiday flags synchronized with main calendar via official_events(). Friday and manual holidays preserved. Windows build not tested.

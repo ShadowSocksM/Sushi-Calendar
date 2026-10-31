@@ -1,0 +1,8 @@
+Sushi Calendar v2.5.23 — RAW UNICODE NOTE
+
+[+] Note buffer: Raw Unicode only
+[+] No fa()/arabic_reshaper/unicode-bidi/reverse on editable note buffer
+[+] Save/Load preserves exact raw note text
+[+] Tray renderer preserved from v2.5.21
+[+] By Soshiant preserved
+[!] Windows runtime Persian RTL/caret behavior must be verified after build.

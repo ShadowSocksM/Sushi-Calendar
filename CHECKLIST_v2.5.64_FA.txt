@@ -1,0 +1,5 @@
+Sushi Calendar v2.5.64
+- Popup weekday headers: شنبه=ش، یکشنبه=ی، دوشنبه=د، سه‌شنبه=س، چهارشنبه=چ، پنجشنبه=پ، جمعه=ج
+- Main calendar weekday names unchanged.
+- Tray and native popup interaction logic unchanged.
+- Windows build and visual test pending.

@@ -1,0 +1,7 @@
+Sushi Calendar v2.5.68 — Compact popup header
+[IMPLEMENTED] Remove popup X button; close by clicking outside.
+[IMPLEMENTED] Replace white Prev/Next buttons with borderless arrows near the month title.
+[PRESERVED] Independent Win32 popup, single click toggle, double click main app.
+[PRESERVED] RTL day grid, holidays, current-day highlight, Gregorian footer.
+[TEST] Windows 11 build and popup arrow hit areas.
+[TEST] Windows 10.

@@ -1,0 +1,32 @@
+MR Calendar v2.5.1 FIX — Checklist
+
+✅ تقویم شمسی Base
+✅ اعداد اصلی روزها فارسی
+✅ میلادی کوچک و فرعی در سلول
+✅ عنوان فارسی کامل روز
+✅ میلادی زیر عنوان
+✅ شاهنشاهی
+✅ جمعه قرمز
+✅ تعطیلات دستی
+✅ Double Click → یادداشت
+✅ علامت روزهای دارای یادداشت/یادآوری
+✅ تم سورمه‌ای
+✅ Contrast کادرهای TextEdit بهتر شد
+✅ Tooltip Tray شامل تاریخ شمسی
+✅ Minimize → Tray
+✅ Portable
+✅ Build script هوشمند برای پیدا کردن Inno Setup
+✅ Setup script v2.5.1
+
+🔄 Tray Restore: تست روی Windows لازم است
+🔄 لوگوی کوچک Tray: نیاز به تست ظاهری روی Windows
+🔄 Setup.exe: در صورت نصب بودن Inno Setup توسط build.bat ساخته می‌شود
+
+⬜ Right Click Tray menu
+⬜ Mini Calendar کنار ساعت
+⬜ Windows Toast بومی
+⬜ Snooze 5/15
+⬜ Done
+⬜ تکرار هفتگی/ماهانه کامل
+⬜ Backup / Restore
+⬜ Search

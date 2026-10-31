@@ -1,0 +1,19 @@
+MR Calendar v2.5.8 - Checklist
+
+Base بازسازی‌شده از آخرین سورس موجود و ادامه مسیر v2.5.7
+
+[✓] Tray Controller بازنویسی شد تا به update loop پنجره مخفی وابسته نباشد
+[✓] Single Click روی MR Tray => Restore/Focus مستقیم با Win32
+[✓] Double Click روی MR Tray => Restore/Focus مستقیم با Win32
+[✓] Right Click > Open MR Calendar => Restore مستقیم
+[✓] Right Click > Today => بازگشت + رفتن به امروز
+[✓] Right Click > New Note => بازگشت + باز کردن یادداشت امروز
+[✓] Right Click > Exit => خروج مستقیم
+[✓] X => مخفی شدن در Tray
+[✓] Minimize => مخفی شدن در Tray
+[✓] MR بزرگ برای هویت Tray/EXE حفظ شد
+[✓] Tooltip تاریخ فارسی حفظ شد
+[✓] By Soshiant به صورت ریز اضافه شد
+[✓] Version => 2.5.8
+
+[~] تست نهایی رفتار Tray باید روی Windows کاربر انجام شود.

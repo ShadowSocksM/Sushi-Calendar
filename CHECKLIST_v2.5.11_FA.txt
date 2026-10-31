@@ -1,0 +1,14 @@
+Sushi Calendar v2.5.11 — Checklist
+
+[✓] Rebrand MR Calendar -> Sushi Calendar
+[✓] Window title: Sushi Calendar v2.5.11
+[✓] Tray menu: Open Sushi Calendar
+[✓] Installer/Start Menu/Desktop: Sushi Calendar
+[✓] Portable: Sushi_Calendar_v2.5.11_Portable.exe
+[✓] Setup: Sushi_Calendar_v2.5.11_Setup.exe
+[✓] By Soshiant remains bottom-left
+[✓] Dynamic Persian day Tray preserved
+[✓] Tray behavior from stable version preserved
+[✓] Holiday right-click preserved
+[✓] RTL/Persian note changes preserved
+[✓] Existing local data path kept for compatibility

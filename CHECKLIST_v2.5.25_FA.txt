@@ -1,0 +1,15 @@
+Sushi Calendar v2.5.25
+
+✅ Note اصلی: کنترل Native Windows EDIT چندخطی واقعی
+✅ Raw Unicode بدون fa/reshape/reverse در مسیر Note
+✅ RTL/راست‌چین توسط Windows
+✅ Caret / Space / Enter / Mouse Selection / Ctrl+A,C,X,V / Scroll توسط Windows
+✅ Tray: پس‌زمینه سرمه‌ای حذف؛ عدد سفید روی Taskbar شفاف
+🔒 By Soshiant بدون تغییر
+🔄 Build و Runtime ویندوز نیاز به تست کاربر دارد.
+
+
+Compile Fix:
+- GetActiveWindow removed; parent window resolved with FindWindowW.
+- EM_SETLIMITTEXT defined locally as Win32 message 0x00C5.
+- Native RTL editor logic otherwise unchanged.

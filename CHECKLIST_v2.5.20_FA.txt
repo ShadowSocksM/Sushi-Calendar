@@ -1,0 +1,12 @@
+Sushi Calendar v2.5.20 — Persian Editor + Tray Polish
+
+✅ Note به TextEdit واقعی برگشت تا Caret واقعی داشته باشد
+✅ انتخاب متن با Drag موس
+✅ Ctrl+A / Ctrl+C / Ctrl+X / Ctrl+V
+✅ Arrow / Home / End / Delete / Backspace
+✅ Scroll عمودی برای متن‌های بلند
+✅ متن ذخیره‌شده Raw Unicode است و index کرسر با buffer یکی است
+✅ Tray: اندازه Medium، فونت Bold ویندوز، فاصله بیشتر بین ارقام، Center
+✅ By Soshiant بدون فاصله اضافه؛ فقط S سفید و Bold
+✅ Auto Save / Config نسخه 2.5.20 حفظ شد
+🔄 تست Runtime ویندوز: شکل اتصال حروف فارسی + Caret/Selection + Tray واقعی

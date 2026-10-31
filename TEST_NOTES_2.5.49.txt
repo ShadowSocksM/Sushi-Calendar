@@ -1,0 +1,1 @@
+Experimental Windows 10/11 source, not runtime verified. Based on 2.5.44. Delays parent hide until mini viewport has had frames; removes repeated SetWindowRgn; ASCII X. Popup rounding temporarily disabled. If single click still opens main window, independent Win32 tray popup is required.

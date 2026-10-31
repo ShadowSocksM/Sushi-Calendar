@@ -1,0 +1,1 @@
+v2.5.60 experimental: robust native mouse press edge detection, viewport close isolation, navy renderer clear color, popup height adjustment. Existing Single Instance retained. Windows compile and runtime not verified. Rounded native window corners remain pending.

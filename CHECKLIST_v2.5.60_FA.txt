@@ -1,0 +1,11 @@
+Sushi Calendar v2.5.60 Checklist
+[OK previously] Single instance
+[OK previously] Tray right-click menu
+[TEST] Windows 11 native popup on left-click
+[TEST] Windows 10 native popup on left-click
+[TEST] Second click closes popup
+[TEST] Native Prev/Next/X buttons and accurate hit testing
+[TEST] Rounded corners and no black top strip
+[TEST] Main window close after popup
+[OPEN] Reminder field contrast on Windows 11
+[TEST] Windows Rust compilation and offline builder

@@ -1,0 +1,12 @@
+Sushi Calendar v2.5.16 - Checklist
+
+✅ اولویت اصلی: رفع پرش متن فارسی به وسط بعد از Enter
+✅ هر خط فارسی در Multiline مستقل Shape/BiDi می‌شود
+✅ خط‌های خالی بعد از Enter حفظ می‌شوند
+✅ Alignment فقط توسط TextEdit کنترل می‌شود؛ halign دوبل حذف شد
+✅ کادر اصلی یادداشت و پنجره Double Click هر دو از Editor اصلاح‌شده استفاده می‌کنند
+✅ Tray: فاصله بین ۱ و ۵ بیشتر شد
+✅ Tray: فونت Bold ویندوز در اولویت قرار گرفت
+✅ Tray: منطق Click/Restore سالم دست نخورده
+✅ By Soshiant حفظ شد
+🔄 تست Runtime ویندوز: Enter x2 سپس تایپ فارسی + ظاهر ۱۵ Tray

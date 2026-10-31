@@ -1,0 +1,9 @@
+Sushi Calendar v2.5.17 - Checklist
+
+✅ خطای mismatched closing delimiter در tray_day_icon رفع شد
+✅ زنجیره fallback فونت Tray به شکل صحیح Rust بازنویسی شد
+✅ اصلاح Multiline RTL نسخه 2.5.16 حفظ شد
+✅ اصلاح فاصله و خوانایی عدد فارسی Tray حفظ شد
+✅ منطق Click/Restore Tray دست نخورده
+✅ By Soshiant حفظ شد
+🔄 تست Build و Runtime روی Windows

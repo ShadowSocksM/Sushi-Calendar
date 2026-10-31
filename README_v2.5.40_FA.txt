@@ -1,0 +1,1 @@
+Sushi Calendar v2.5.41 - experimental tray mini fix.\nSingle-click tray requests only the mini popup; popup taskbar entry disabled; native style changes removed; rounded corners requested on Windows 11; larger hit targets.\nWindows build and runtime are not verified. Preserve v2.5.37.\n

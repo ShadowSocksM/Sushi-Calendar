@@ -1,0 +1,1 @@
+Changes: 16ms always-on UI repaint -> 250ms; native RichEdit paragraph reformat only when line direction/line count changes; white note background and dark text; white single-line reminder fields. Stable native Tray popup untouched. Windows compilation not verified.

@@ -1,0 +1,1 @@
+Sushi Calendar v2.5.34 - experimental build. Based on v2.5.31 daily note alignment. Tray left-click wakes hidden main window without foreground activation, attempts to show mini viewport, then hides main window. Windows runtime behavior is not verified.\n

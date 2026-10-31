@@ -1,0 +1,21 @@
+MR Calendar v2.5.4 — COMPILE FIX
+
+✅ Cargo version به SemVer معتبر 2.5.4 تغییر کرد
+✅ خطای unexpected character '.' رفع شد
+✅ اصلاح قبلی MenuEvent E0282 حفظ شد
+✅ ماه قبل / ماه بعد
+✅ سال قبل / سال بعد
+✅ انتخاب سریع ماه و سال
+✅ Tray Single/Double Click handler
+✅ Tray Right-click menu
+✅ Tooltip فارسی بدون reshape
+✅ Portable + Setup scripts
+
+🔄 Compile روی Windows
+🔄 Tray click tests
+🔄 Tooltip final test
+⬜ Mini Calendar
+⬜ Windows Toast
+⬜ Snooze / Done
+⬜ Backup / Restore
+⬜ Search

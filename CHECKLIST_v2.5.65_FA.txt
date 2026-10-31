@@ -1,0 +1,6 @@
+Sushi Calendar v2.5.65
+[OK previous v2.5.64] Tray single/double-click, toggle, popup buttons, main close
+[CHANGED] Added Gregorian date footer under popup grid, e.g. 19 اکتبر 2026
+[CHANGED] Popup height 340 px for a separate footer row
+[TEST] Build on Windows 11 and check footer and popup positioning
+[TEST] Windows 10

@@ -1,0 +1,16 @@
+Sushi Calendar v2.5.20 — Checklist
+
+✅ Auto Save تعطیلات، یادداشت‌ها، Reminder و تنظیمات
+✅ فایل SushiCalendar_Config.json کنار EXE
+✅ Portable: کانفیگ همراه فولدر برنامه
+✅ Setup: نصب در LocalAppData\Programs\Sushi Calendar تا کانفیگ کنار EXE قابل نوشتن باشد
+✅ مهاجرت خودکار از data.json قدیمی در MRCalendar
+✅ ذخیره امن با فایل موقت و جایگزینی
+✅ دکمه ذخیره کانفیگ
+✅ دکمه بارگذاری کانفیگ
+✅ امروز با Fill آبی مشخص است
+✅ روز انتخابی فقط حاشیه آبی دارد و با انتخاب روز دیگر حاشیه جابه‌جا می‌شود
+✅ Tray متوسط حفظ شد
+✅ By Soshiant با S سفید حفظ شد
+🔄 تست Runtime ویندوز: ذخیره/بستن/بازکردن و Load Config
+🔄 تست Runtime ویندوز: تایپ فارسی Enter/Caret

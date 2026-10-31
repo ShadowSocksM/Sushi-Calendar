@@ -1,0 +1,8 @@
+﻿/target/
+/Release/
+*.log
+*.tmp
+*.bak
+desktop_widget.json
+.DS_Store
+Thumbs.db

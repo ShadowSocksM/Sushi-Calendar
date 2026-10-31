@@ -1,0 +1,1 @@
+v2.5.60 experimental: remove native mouse polling overrides; prevent popup viewport activation stealing focus; send main close commands explicitly to main viewport and hide via Win32 ShowWindow. Keep single instance unchanged. Native popup pointer hitboxes and black strip/rounded corners NOT verified or fixed. Compile/runtime untested.

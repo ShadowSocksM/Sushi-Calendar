@@ -1,0 +1,1 @@
+Matte Sushi Calendar icon replaces MR icon in EXE and installer. Based on v2.5.79. Build and test on Windows. Stable v2.5.76 unchanged.

@@ -1,0 +1,7 @@
+Sushi Calendar v2.5.29 — test build
+- Dark RichEdit for daily note popup, white text and dark background
+- Per-paragraph RTL/LTR formatting using native RichEdit
+- Main editor is hidden while daily popup is active
+- Fix Saturday-first calendar index
+- Build creates Release Portable and Setup on Windows
+NOTE: Windows runtime testing is required.

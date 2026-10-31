@@ -1,0 +1,23 @@
+MR Calendar v2.5.3.1 — COMPILE FIX
+
+✅ خطای E0282 در MenuEvent رفع شد
+✅ نوع MenuEvent به closure به‌صورت صریح اضافه شد
+✅ warning مربوط به Path حذف شد
+✅ ماه قبل / بعد
+✅ سال قبل / بعد
+✅ انتخاب سریع ماه و سال
+✅ Persian-first calendar
+✅ Tray event handler
+✅ Single / Double click Tray
+✅ Right-click Tray menu
+✅ Tooltip بدون reshape معکوس
+✅ Portable + Setup build scripts
+
+🔄 Compile روی Windows — تست کاربر
+🔄 Tray clicks — بعد از Build تست شود
+🔄 Tooltip نهایی — بعد از Build تست شود
+⬜ Mini Calendar
+⬜ Windows Toast
+⬜ Snooze / Done
+⬜ Backup / Restore
+⬜ Search

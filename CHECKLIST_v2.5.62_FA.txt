@@ -1,0 +1,7 @@
+Fixed source syntax: YES
+Fixed SS_CENTER missing symbol: YES
+Offline error message: YES
+Windows compilation: NOT TESTED
+Win11 popup click: NOT TESTED
+Second click: NOT TESTED
+Buttons and DPI: NOT TESTED

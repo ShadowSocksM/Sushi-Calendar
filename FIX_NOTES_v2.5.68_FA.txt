@@ -1,0 +1,7 @@
+Sushi Calendar v2.5.68 — Dark Note / Visible Typing
+- Restored matte navy background for native Windows RichEdit note boxes.
+- White text color for new typing and existing text; caret uses native Windows control.
+- Keep editor focus, text selection, Ctrl+A, Enter and Persian Unicode buffer unchanged.
+- Avoid redundant SetWindowPos on each UI repaint to reduce typing stalls.
+- Tray popup and native calendar logic are unchanged from v2.5.67.
+- Windows build and runtime must be tested by the user. Keep v2.5.66 stable backup.

@@ -1,0 +1,27 @@
+MR Calendar v2.5.2 UI FIX
+
+✅ Persian-first calendar cells
+✅ روز شمسی بزرگ و فارسی
+✅ میلادی ریز و خاکستری پایین سلول
+✅ نقطه مجزا برای Note/Reminder
+✅ TextBox متن تیره و خوانا
+✅ دکمه‌های ثبت/حذف سورمه‌ای با متن سفید
+✅ ComboBox تکرار سورمه‌ای و خوانا
+✅ عنوان «سه‌شنبه ۱۴ مهر ۱۴۰۵»
+✅ میلادی ریز زیر عنوان
+✅ شاهنشاهی با ترتیب اصلاح‌شده
+✅ Setup + Portable build
+✅ تم سورمه‌ای
+✅ Double Click → Note
+✅ جمعه قرمز
+
+🔄 Tray restore — تست Windows
+🔄 Tray icon — تست Windows
+
+⬜ Right Click Tray menu
+⬜ Mini Calendar کنار ساعت
+⬜ Windows Toast
+⬜ Snooze / Done
+⬜ Weekly / Monthly کامل
+⬜ Backup / Restore
+⬜ Search

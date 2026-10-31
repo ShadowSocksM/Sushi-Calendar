@@ -1,0 +1,1 @@
+v2.5.54 Native hit-test architecture test. Win32 GetCursorPos + ScreenToClient maps physical cursor to egui button rectangles. Also detects native main caption X independently from child viewport. Single Instance code preserved. Black top strip and OS-level rounded corners remain unresolved. Not compiled/tested on Windows.

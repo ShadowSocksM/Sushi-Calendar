@@ -1,0 +1,4 @@
+Sushi Calendar v2.5.63 — Popup RTL Grid
+Confirmed v2.5.62 baseline (preserved): single Tray click popup, second click close, double click main, previous/next/X, main X, note inputs.
+Changed: right-to-left Saturday→Friday grid, native Unicode GDI text (no manual reshaping), Friday red, stored holiday red, today blue highlight, adjacent month muted, DPI-aware hitboxes inherited.
+Needs Windows build and visual test; not compiled here.

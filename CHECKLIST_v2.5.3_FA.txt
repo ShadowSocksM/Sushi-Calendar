@@ -1,0 +1,28 @@
+MR Calendar v2.5.3 — TRAY + NAV FIX
+
+✅ ماه قبل / ماه بعد
+✅ سال قبل / سال بعد
+✅ کلیک روی عنوان ماه/سال → انتخاب سریع ماه و سال
+✅ Persian-first calendar
+✅ اعداد شمسی بزرگ
+✅ میلادی ریز
+✅ ComboBox سفید حذف شد؛ تکرار با دکمه‌های سورمه‌ای
+✅ Tooltip Tray بدون reshape معکوس
+✅ Tray icon اختصاصی ساده برای اندازه کوچک
+✅ Tray event handler مستقیم
+✅ Single/Double click Tray → Restore/Focus
+✅ Right-click Tray menu: Open / Today / New Note / Exit
+✅ Portable + Setup build
+✅ تم سورمه‌ای
+✅ Double Click روز → Note
+
+🔄 Tray رفتار واقعی روی Windows باید تست شود
+🔄 X → Tray هنوز نیاز به تست/تکمیل دارد
+
+⬜ Mini Calendar کنار ساعت
+⬜ Windows Toast بومی
+⬜ Snooze 5/15
+⬜ Done
+⬜ Weekly / Monthly کامل
+⬜ Backup / Restore
+⬜ Search

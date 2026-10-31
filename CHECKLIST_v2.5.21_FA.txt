@@ -1,0 +1,14 @@
+Sushi Calendar v2.5.21
+======================
+- نسخه پایه: v2.5.20
+- Tray: رندر مستقیم 16x16 برای جلوگیری از کوچک‌سازی و Blur ثانویه
+- اندازه Tray: متوسط، Persian day digits، Center
+- Note: حفظ TextEdit واقعی برای Caret/Selection/Clipboard
+- By Soshiant: استایل فعلی بدون تغییر
+- Auto Save / Config: حفظ شده
+
+تست Runtime ویندوز لازم است:
+1) فارسی چندخطی و Enter
+2) Caret بعد از Space
+3) Mouse selection و Ctrl+A/C/X/V
+4) Tray در Scale واقعی Taskbar

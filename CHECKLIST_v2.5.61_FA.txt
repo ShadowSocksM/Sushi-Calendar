@@ -1,0 +1,7 @@
+Native popup Windows 11: needs test
+Second click toggle: needs test
+Double click main: needs test
+Popup auto hide on deactivation: new, needs test
+Main close to Tray: needs test
+Note field contrast: open
+Windows compile: not verified

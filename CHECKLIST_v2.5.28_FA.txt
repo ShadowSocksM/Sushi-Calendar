@@ -1,0 +1,7 @@
+Sushi Calendar v2.5.28 - TEST SOURCE
+- Single-click tray opens a separate small Jalali calendar viewport (experimental).
+- Double-click tray restores full calendar.
+- Mini calendar month navigation and today highlight.
+- Note alignment recalculated when content changes, not on every redraw.
+- Windows build/runtime NOT verified; preserve v2.5.27.
+- Click-outside auto-dismiss not implemented yet.

@@ -1,0 +1,1 @@
+Startup tuning TEST: reduced startup hide retries 12 to 4; changed idle repaint from 1 to 2 seconds. Hidden initial viewport retained. Windows compilation/runtime NOT verified. Test flash, Tray, reminders.

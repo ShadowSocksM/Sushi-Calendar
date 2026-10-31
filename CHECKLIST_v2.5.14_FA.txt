@@ -1,0 +1,10 @@
+Sushi Calendar v2.5.14 - Checklist
+
+✅ Base: v2.5.13 Compile Fix
+✅ TextEdit فارسی: نمایش با Arabic shaping + BiDi در Layouter، با buffer خام برای تایپ
+✅ راست‌چین برای فارسی، چپ‌چین برای انگلیسی
+✅ کادر یادداشت اصلی و پنجره Double Click هر دو اصلاح شدند
+✅ Tray: گلیف ۵ لاتین حذف و شکل مستقل فارسی برای ۵ رسم شد؛ ۱۵ دیگر شبیه 15 لاتین نیست
+✅ Tray event/restore logic دست نخورده
+✅ By Soshiant پایین سمت چپ حفظ شد
+🔄 Build و Runtime روی Windows توسط کاربر

@@ -1,0 +1,6 @@
+Sushi Calendar 2.5.51 - SINGLE INSTANCE source test
+Base: v2.5.49 (user-confirmed tray open/close and main X).
+Changed: Win32 named mutex blocks a second running instance; named auto-reset event asks the existing process to show/focus the main window. Event listener wakes egui and restores the main window. No tray click logic changes.
+Not fixed in this release: mini-popup button hit-test offset, black top bar, rounded window corners. These are still open bugs.
+Build and runtime on Windows 10/11 have NOT been verified in this environment.
+TEST: close all previous Sushi Calendar instances before starting 2.5.51; launch the new portable exe three times and check one tray icon; hide to tray and launch again to check restore.

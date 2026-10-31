@@ -1,0 +1,1 @@
+Sushi Calendar v2.5.60 diagnostic build. Run build.bat (offline), launch EXE, left-click tray date once, then send SushiCalendar_Tray_Debug.log from the EXE Release folder. No personal notes are written to this log.
