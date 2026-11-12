@@ -1,22 +1,29 @@
 @echo off
 setlocal
 chcp 65001>nul
-title Sushi Calendar v2.5.95 Offline Builder
+title Sushi Calendar v2.5.102 Builder (Offline + Online fallback)
 echo ==================================================
-echo Sushi Calendar v2.5.95
+echo Sushi Calendar v2.5.102
 echo ==================================================
-echo [1/2] Building Rust Release using LOCAL Cargo cache...
+echo [1/2] Building Rust Release...
+echo Trying offline cache first...
 set "CARGO_NET_OFFLINE=true"
 cargo build --release --offline
 if errorlevel 1 (
  echo.
- echo ERROR: Rust compilation failed. Read the compiler errors above.
- echo This does NOT necessarily indicate missing offline dependencies.
- pause
- exit /b 1
+ echo Offline dependency resolution failed. Retrying ONLINE...
+ set "CARGO_NET_OFFLINE=false"
+ cargo build --release
+ if errorlevel 1 (
+  echo.
+  echo ERROR: Rust build failed. If this is a network error, connect Cargo to the internet or a working proxy.
+  echo NOTE: This source package has no Cargo.lock; offline builds may fail until dependencies are downloaded and locked.
+  pause
+  exit /b 1
+ )
 )
 if not exist Release mkdir Release
-copy /Y target\release\mr_calendar.exe Release\Sushi_Calendar_v2.5.95_Portable.exe >nul
+copy /Y target\release\mr_calendar.exe Release\Sushi_Calendar_v2.5.102_Portable.exe >nul
 
 echo [2/2] Looking for Inno Setup 6...
 set "ISCC="
@@ -44,7 +51,7 @@ if defined ISCC (
 
 echo.
 echo OUTPUT:
-echo Release\Sushi_Calendar_v2.5.95_Portable.exe
-echo Release\Sushi_Calendar_v2.5.95_Setup.exe
+echo Release\Sushi_Calendar_v2.5.102_Portable.exe
+echo Release\Sushi_Calendar_v2.5.102_Setup.exe
 echo.
 pause

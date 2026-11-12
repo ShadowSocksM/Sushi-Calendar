@@ -1,7 +1,7 @@
 //! Dedicated Win32 popup, independent of eframe viewport focus and DPI hit testing.
 #![cfg(windows)]
 use std::{sync::{Arc,atomic::{AtomicU8,AtomicU64,Ordering}},thread,time::Duration};
-use windows_sys::Win32::{Foundation::{HWND,LPARAM,LRESULT,WPARAM,RECT},UI::WindowsAndMessaging::*,Graphics::Gdi::*};
+use windows_sys::Win32::{Foundation::{HWND,LPARAM,LRESULT,WPARAM,RECT,SIZE},UI::WindowsAndMessaging::*,Graphics::Gdi::*};
 use chrono::{Datelike,Local,Duration as ChronoDuration};
 // Win32 mouse capture functions are provided by user32.dll.
 // Declare explicitly to avoid missing imports in windows-sys 0.59.
@@ -319,15 +319,30 @@ unsafe extern "system" fn widget_proc(hwnd:HWND,msg:u32,wp:WPARAM,lp:LPARAM)->LR
     // IranNastaliq when installed; Windows GDI falls back when absent.
     let font=CreateFontW(-26,0,0,0,FW_NORMAL as i32,0,0,0,DEFAULT_CHARSET as u32,OUT_DEFAULT_PRECIS as u32,CLIP_DEFAULT_PRECIS as u32,CLEARTYPE_QUALITY as u32,DEFAULT_PITCH as u32,wide("IranNastaliq").as_ptr());
     let old=SelectObject(dc,font as _);
-    let mut header=wide(crate::weekday(y,m,d));let mut head=RECT{left:8,top:6,right:192,bottom:55};
+    let mut header=wide(crate::weekday(y,m,d));let mut head=RECT{left:8,top:11,right:192,bottom:60};
     DrawTextW(dc,header.as_mut_ptr(),-1,&mut head,DT_CENTER|DT_VCENTER|DT_SINGLELINE|DT_RTLREADING);
     let mut footer=wide(&format!("{} {}",MONTHS[(m-1)as usize],pd(y)));let mut foot=RECT{left:8,top:155,right:192,bottom:205};
     DrawTextW(dc,footer.as_mut_ptr(),-1,&mut foot,DT_CENTER|DT_VCENTER|DT_SINGLELINE|DT_RTLREADING);
     SelectObject(dc,old);DeleteObject(font as _);
-    let big=CreateFontW(-82,0,0,0,FW_BOLD as i32,0,0,0,DEFAULT_CHARSET as u32,OUT_DEFAULT_PRECIS as u32,CLIP_DEFAULT_PRECIS as u32,CLEARTYPE_QUALITY as u32,DEFAULT_PITCH as u32,wide("Tahoma").as_ptr());
-    let old=SelectObject(dc,big as _);let mut day=wide(&pd(d));let mut dr=RECT{left:8,top:48,right:192,bottom:156};
-    DrawTextW(dc,day.as_mut_ptr(),-1,&mut dr,DT_CENTER|DT_VCENTER|DT_SINGLELINE|DT_RTLREADING);
-    SelectObject(dc,old);DeleteObject(big as _);
+    // v2.5.102: use the same IranNastaliq face as the widget header/footer.
+    // Draw the complete date as one shaped RTL string, not separate glyphs:
+    // Nastaliq glyph shaping and spacing must be handled by Windows GDI.
+    if d >= 10 {
+      let big=CreateFontW(-70,0,0,0,FW_NORMAL as i32,0,0,0,DEFAULT_CHARSET as u32,OUT_DEFAULT_PRECIS as u32,CLIP_DEFAULT_PRECIS as u32,CLEARTYPE_QUALITY as u32,DEFAULT_PITCH as u32,wide("IranNastaliq").as_ptr());
+      let previous=SelectObject(dc,big as _);
+      let mut day=wide(&pd(d));
+      let mut dr=RECT{left:8,top:51,right:192,bottom:161};
+      DrawTextW(dc,day.as_mut_ptr(),-1,&mut dr,DT_CENTER|DT_VCENTER|DT_SINGLELINE|DT_RTLREADING|DT_NOPREFIX);
+      SelectObject(dc,previous);DeleteObject(big as _);
+    } else {
+      // Preserve approved single-digit Tahoma styling.
+      let single=CreateFontW(-82,0,0,0,FW_BOLD as i32,0,0,0,DEFAULT_CHARSET as u32,OUT_DEFAULT_PRECIS as u32,CLIP_DEFAULT_PRECIS as u32,CLEARTYPE_QUALITY as u32,DEFAULT_PITCH as u32,wide("Tahoma").as_ptr());
+      let previous=SelectObject(dc,single as _);
+      let mut day=wide(&pd(d));
+      let mut dr=RECT{left:8,top:48,right:192,bottom:156};
+      DrawTextW(dc,day.as_mut_ptr(),-1,&mut dr,DT_CENTER|DT_VCENTER|DT_SINGLELINE|DT_RTLREADING|DT_NOPREFIX);
+      SelectObject(dc,previous);DeleteObject(single as _);
+    }
    }
    EndPaint(hwnd,&ps);0
   },

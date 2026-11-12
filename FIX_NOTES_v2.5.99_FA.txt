@@ -1,0 +1,4 @@
+Sushi Calendar v2.5.101 - Tray date sync
+Tray icon is owned by a dedicated Windows message-pump thread.
+It checks date independently from hidden eframe UI and logs date transitions.
+Test on Windows after midnight and after sleep/resume.

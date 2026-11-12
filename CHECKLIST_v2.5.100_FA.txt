@@ -1,0 +1,5 @@
+Sushi Calendar v2.5.101 - Regular Digits
+- Two-digit widget days: normal-weight Tahoma, natural spacing, symmetric centered rect.
+- Single-digit widget days: unchanged bold font.
+- Tray, popup, smooth dragging: unchanged source behavior.
+- Windows build and runtime verification: pending.

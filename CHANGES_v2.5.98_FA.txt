@@ -1,0 +1,5 @@
+Sushi Calendar v2.5.101 - Tray Date Sync
+- Wake the UI event loop every 30 seconds, including while hidden, to refresh the tray date.
+- Recheck local Jalali date after sleep/resume.
+- Preserve widget, popup, tray rendering and drag behavior.
+- Build and Windows overnight testing required.

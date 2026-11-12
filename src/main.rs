@@ -38,7 +38,7 @@ const BLUE:Color32=Color32::from_rgb(36,112,240);
 #[cfg(windows)]
 fn restore_native_window(){
  use windows_sys::Win32::UI::WindowsAndMessaging::{FindWindowW,ShowWindow,SetForegroundWindow,SW_SHOW,SW_RESTORE};
- let title:Vec<u16>="Sushi Calendar v2.5.95\0".encode_utf16().collect();
+ let title:Vec<u16>="Sushi Calendar v2.5.102\0".encode_utf16().collect();
  unsafe{
   let hwnd=FindWindowW(std::ptr::null(),title.as_ptr());
   if !hwnd.is_null(){ShowWindow(hwnd,SW_SHOW);ShowWindow(hwnd,SW_RESTORE);SetForegroundWindow(hwnd);}
@@ -47,7 +47,7 @@ fn restore_native_window(){
 #[cfg(windows)]
 fn hide_main_native(){
  use windows_sys::Win32::UI::WindowsAndMessaging::{FindWindowW,ShowWindow,SW_HIDE};
- let title=wstr("Sushi Calendar v2.5.95");
+ let title=wstr("Sushi Calendar v2.5.102");
  unsafe {let hwnd=FindWindowW(std::ptr::null(),title.as_ptr());if !hwnd.is_null(){ShowWindow(hwnd,SW_HIDE);}}
 }
 #[cfg(not(windows))]
@@ -55,7 +55,7 @@ fn restore_native_window(){}
 #[cfg(windows)]
 fn wake_native_window_for_mini(){
  use windows_sys::Win32::UI::WindowsAndMessaging::{FindWindowW,ShowWindow,SW_SHOWNOACTIVATE};
- let title:Vec<u16>="Sushi Calendar v2.5.95\0".encode_utf16().collect();
+ let title:Vec<u16>="Sushi Calendar v2.5.102\0".encode_utf16().collect();
  unsafe {let hwnd=FindWindowW(std::ptr::null(),title.as_ptr());if !hwnd.is_null(){ShowWindow(hwnd,SW_SHOWNOACTIVATE);}}
 }
 #[cfg(not(windows))]
@@ -224,7 +224,7 @@ fn wstr(s:&str)->Vec<u16>{s.encode_utf16().chain(std::iter::once(0)).collect()}
 #[cfg(windows)]
 unsafe fn native_note_create()->windows_sys::Win32::Foundation::HWND{
  use windows_sys::Win32::UI::WindowsAndMessaging::*;
- let title=wstr("Sushi Calendar v2.5.95");
+ let title=wstr("Sushi Calendar v2.5.102");
  let parent=FindWindowW(std::ptr::null(),title.as_ptr());
  if parent.is_null(){return std::ptr::null_mut();}
  // Load the system RichEdit implementation for per-paragraph formatting.
@@ -431,22 +431,45 @@ impl App{
     unsafe{windows_sys::Win32::Foundation::CloseHandle(event);}
    });
   }
-  let tr=tray();
-  let (tray_icon,menu_open,menu_today,menu_note,menu_exit)=match tr{
-   Some((t,a,b,c,d))=>(Some(t),Some(a),Some(b),Some(c),Some(d)),
-   None=>(None,None,None,None,None)
-  };
-  // Background worker only requests refresh; TrayIcon is !Send.
-  let tray_refresh=Arc::new(AtomicU8::new(0));
-  let signal=tray_refresh.clone();let repaint=_ctx.clone();
+  // Own the tray icon on a dedicated Windows message-pump thread. The eframe
+  // update() callback is NOT guaranteed to run when its viewport is hidden.
+  // The tray owner checks the wall-clock date independently of that viewport.
+  let (ids_tx,ids_rx)=std::sync::mpsc::sync_channel(1);
   std::thread::spawn(move||{
+   let result=tray();
+   let ids=result.as_ref().map(|(_,a,b,c,d)|(a.clone(),b.clone(),c.clone(),d.clone()));
+   let _=ids_tx.send(ids);
+   let Some((tr,_,_,_,_))=result else {diagnostic_log("TRAY_OWNER creation failed");return};
    let mut last=ty_now();
-   loop{
-    std::thread::sleep(std::time::Duration::from_secs(15));
-    let current=ty_now();
-    if current!=last{signal.store(1,Ordering::SeqCst);repaint.request_repaint();last=current;}
+   diagnostic_log(&format!("TRAY_OWNER started date={:?}",last));
+   #[cfg(windows)] unsafe {
+    use windows_sys::Win32::UI::WindowsAndMessaging::{PeekMessageW,TranslateMessage,DispatchMessageW,MSG,PM_REMOVE};
+    loop {
+     let mut msg:MSG=std::mem::zeroed();
+     while PeekMessageW(&mut msg,std::ptr::null_mut(),0,0,PM_REMOVE)!=0 {
+      TranslateMessage(&msg);DispatchMessageW(&msg);
+     }
+     let current=ty_now();
+     if current!=last {
+      let (yy,mm,dd)=current;
+      let icon_ok=tray_day_icon(dd).map(|ic|tr.set_icon(Some(ic)).is_ok()).unwrap_or(false);
+      let tip=format!("\u{202B}{} {} {} {}\u{202C}",weekday(yy,mm,dd),pd(dd),MONTHS[(mm-1)as usize],pd(yy));
+      let tip_ok=tr.set_tooltip(Some(tip)).is_ok();
+      diagnostic_log(&format!("TRAY_OWNER date {:?} -> {:?}; icon={} tooltip={}",last,current,icon_ok,tip_ok));
+      if icon_ok {last=current;}
+     }
+     std::thread::sleep(std::time::Duration::from_millis(250));
+    }
    }
+   #[cfg(not(windows))] loop {std::thread::sleep(std::time::Duration::from_secs(30));}
   });
+  let ids=ids_rx.recv_timeout(std::time::Duration::from_secs(10)).ok().flatten();
+  let (menu_open,menu_today,menu_note,menu_exit)=match ids{
+   Some((a,b,c,d))=>(Some(a),Some(b),Some(c),Some(d)),
+   None=>(None,None,None,None)
+  };
+  let tray_icon=None;
+  let tray_refresh=Arc::new(AtomicU8::new(0));
   #[cfg(windows)] let popup_note_request=Arc::new(AtomicU64::new(0));
   #[cfg(windows)] let native_popup_cmd=native_tray_popup::start(popup_note_request.clone());
   #[cfg(windows)] native_tray_popup::start_desktop_widget(popup_note_request.clone());
@@ -516,16 +539,9 @@ impl App{
 impl eframe::App for App{
  fn update(&mut self,ctx:&egui::Context,_:&mut eframe::Frame){
   ctx.request_repaint_after(std::time::Duration::from_secs(2));self.alarms();
-  // Update tray only on the UI thread; no TrayIcon is moved to a worker.
-  let (yy,mm,dd)=ty_now();
-  if self.tray_refresh.swap(0,Ordering::SeqCst)!=0 || (yy,mm,dd).2!=self.tray_day{
-   if let Some(tr)=self._tray.as_ref(){
-    if let Some(ic)=tray_day_icon(dd){let _=tr.set_icon(Some(ic));}
-    let tip=format!("\u{202B}{} {} {} {}\u{202C}",weekday(yy,mm,dd),pd(dd),MONTHS[(mm-1)as usize],pd(yy));
-    let _=tr.set_tooltip(Some(tip));
-   }
-   self.tray_day=dd;
-  }
+  // The independent tray owner thread updates the icon even if this window
+  // remains hidden for days. Do not update it here (different owner thread).
+
 
 
   #[cfg(windows)] if SECOND_LAUNCH.swap(false,Ordering::SeqCst){
@@ -751,7 +767,7 @@ impl eframe::App for App{
  }
 }
 fn main(){
- diagnostic_log("START Sushi Calendar 2.5.83");
+ diagnostic_log("START Sushi Calendar 2.5.102");
  let startup_launch=std::env::args().any(|arg|arg=="--startup" || arg=="--tray" || arg=="--hidden");
  #[cfg(windows)] let _single_guard=match single_instance_guard(startup_launch){Some(g)=>g,None=>return};
  #[cfg(windows)] if startup_launch {
@@ -766,4 +782,4 @@ fn main(){
    }
   });
  }
- let opt=eframe::NativeOptions{viewport:egui::ViewportBuilder::default().with_visible(!startup_launch).with_inner_size([1180.,760.]).with_min_inner_size([1020.,660.]).with_icon(egui::IconData{rgba:image::load_from_memory(include_bytes!("../assets/logo.png")).unwrap().into_rgba8().into_raw(),width:256,height:256}),..Default::default()};let _=eframe::run_native("Sushi Calendar v2.5.95",opt,Box::new(|cc|{fonts(&cc.egui_ctx);let mut v=egui::Visuals::dark();v.panel_fill=NAVY;cc.egui_ctx.set_visuals(v);Ok(Box::new(App::new(&cc.egui_ctx)))}));}
+ let opt=eframe::NativeOptions{viewport:egui::ViewportBuilder::default().with_visible(!startup_launch).with_inner_size([1180.,760.]).with_min_inner_size([1020.,660.]).with_icon(egui::IconData{rgba:image::load_from_memory(include_bytes!("../assets/logo.png")).unwrap().into_rgba8().into_raw(),width:256,height:256}),..Default::default()};let _=eframe::run_native("Sushi Calendar v2.5.102",opt,Box::new(|cc|{fonts(&cc.egui_ctx);let mut v=egui::Visuals::dark();v.panel_fill=NAVY;cc.egui_ctx.set_visuals(v);Ok(Box::new(App::new(&cc.egui_ctx)))}));}

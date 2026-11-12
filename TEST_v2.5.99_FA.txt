@@ -1,0 +1,5 @@
+Version 2.5.101: independent tray owner Windows message loop.
+Build using build.bat on Windows.
+Verify tray right-click and left-click, and midnight date rollover without exiting.
+Debug file: SushiCalendar_Tray_Debug.log next to executable.
+Not yet compiled or tested on Windows.

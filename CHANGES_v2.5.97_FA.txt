@@ -1,0 +1,4 @@
+Sushi Calendar v2.5.97
+- Base: v2.5.96 Small Centered Digits source
+- Version identifiers updated to v2.5.97 in app, Cargo, builder, and installer.
+- Build and Windows visual testing pending.
